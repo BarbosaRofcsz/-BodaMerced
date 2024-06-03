@@ -1,0 +1,13 @@
+    while (row = mysql_fetch_row(result)) {
+     printf("\t\t%s\t     %s\t          %s\t     %s\n", row[0], row[1], row[2], row[3]);
+    }
+    printf("Delete? <y/n>\n");
+    scanf("%s", ch);
+    if (!strcmp(ch, "Y") || !strcmp(ch, "y")) {
+     char dest1[100] = { " " };
+     sql = "delete from tb_book where ID = ";
+     strcat(dest1, sql);
+     strcat(dest1, id); 
+     printf("\n%s\t", dest1);
+     if (mysql_query(&mysql, dest1)) printf("删除失败\n");
+     else printf("删除成功\n");
