@@ -1,0 +1,3 @@
+props.put("mail.smtp.auth", "true");
+props.setProperty("mail.user", "myuser");
+props.setProperty("mail.password", "mypwd");
