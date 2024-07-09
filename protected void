@@ -1,0 +1,34 @@
+protected void doDisableUser(String userId) throws UserProfileResourceException { 
+	 
+		//This is not an allowed operation.If this is not the case add the code to 
+    // implement it 
+		System.out.println("SampleUserManagerImpl.doDisableUser - This operation is not implemented !");  
+		 
+	} 
+ 
+	protected void doEnableUser(String userId) throws UserProfileResourceException { 
+ 
+		//This is not an allowed operation.If this is not the case add the code to 
+    // implement it 
+		System.out.println("SampleUserManagerImpl.doEnableUser - This operation is not implemented !");  
+	 
+	} 
+   
+	protected User doGetAnonymousUser() throws UserProfileResourceException { 
+		return new SampleUserImpl(); 
+	} 
+   
+	protected User doGetUser(String userId) throws UserProfileResourceException { 
+ 
+		User aUser = null; 
+		try { 
+			aUser = proxy.createUserFromExternal(userId); 
+			if (aUser != null) 
+				System.out.println("SampleUserManagerImpl.doGetUserByUniqueDeviceId:- User with "+userId+" is found."); 
+			else 
+				System.out.println("SampleUserManagerImpl.doGetUserByUniqueDeviceId:- User with "+userId+" not found"); 
+		} catch (Exception ex) { 
+			System.out.println("SampleUserManagerImpl.doGetUserByUniqueDeviceId:- User "+userId+" not found)"); 
+			throw new com.sun.content.server.service.security.util.UserProfileResourceException(ex); 
+		} 
+		return aUser; 
